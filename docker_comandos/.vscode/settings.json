@@ -1,0 +1,15 @@
+{
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": "always"
+    },
+    "cSpell.language": "es-419",
+    "cSpell.dictionaries": [
+        "spanish",
+        "es"
+    ],
+    "cSpell.enabled": true
+}
