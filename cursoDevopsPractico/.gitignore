@@ -1,0 +1,54 @@
+# os-specific
+.DS_Store
+
+helloworld
+helloworld-web
+
+*.bak
+*.back
+
+# ansible
+*.retry
+cookies.txt
+# vault_pass
+hosts
+
+# ansible-galaxy installed roles
+ansible/roles/k3s-server/
+ansible/roles/k3s-agent/
+ansible/roles/metallb/
+ansible/roles/traefik/
+ansible/roles/docker-registry/
+ansible/roles/taiga/
+ansible/roles/kubernetes-dashboard/
+ansible/roles/gitlab/
+ansible/roles/drone/
+ansible/roles/sonarqube/
+ansible/roles/plantuml-server
+ansible/roles/helm/
+ansible/roles/openwhisk/
+
+box/ansible/roles/common/
+box/ansible/roles/docker/
+box/ansible/roles/docker-compose/
+box/ansible/roles/inspec/
+box/ansible/roles/drone-cli/
+box/ansible/roles/sonar-scanner-cli/
+
+# vagrant
+.vagrant/
+*.vdi
+*.box
+vagrant_private_key
+*.log
+
+# cache
+cache
+
+# box/packer-alpine310
+box/packer-alpine310/cache/
+box/packer-alpine310/packer_cache/
+box/packer-alpine310/isos/
+
+# inspec
+inspec_hellworld.json

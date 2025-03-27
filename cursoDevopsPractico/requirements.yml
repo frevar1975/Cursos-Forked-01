@@ -1,0 +1,55 @@
+# This is used to manage Ansible role dependences
+# http://docs.ansible.com/galaxy.html#installing-multiple-roles-from-a-file
+# Install with: `ansible-galaxy install -r requirements.yml`
+
+- name: k3s-server
+  src: https://github.com/nemonik/k3s-server-role.git
+  version: master
+
+- name: k3s-agent
+  src: https://github.com/nemonik/k3s-agent-role.git
+  version: master
+
+- name: metallb
+  src: https://github.com/nemonik/metallb-role.git
+  version: master
+
+- name: traefik
+  src: https://github.com/nemonik/traefik-role.git
+  version: master
+
+- name: docker-registry
+  src: https://github.com/nemonik/docker-registry-role.git
+  version: master
+
+- name: kubernetes-dashboard
+  src: https://github.com/nemonik/kubernetes-dashboard-role.git
+  version: master
+
+- name: taiga
+  src: https://github.com/nemonik/taiga-role.git
+  version: master
+
+- name: gitlab
+  src: https://github.com/nemonik/gitlab-role.git
+  version: master
+
+- name: drone
+  src: https://github.com/nemonik/drone-role.git
+  version: master
+
+- name: plantuml-server
+  src: https://github.com/nemonik/plantuml-server-role.git
+  version: master
+
+- name: sonarqube
+  src: https://github.com/nemonik/sonarqube-role.git
+  version: master
+
+- name: helm
+  src: https://github.com/nemonik/helm-role.git
+  version: master
+
+- name: openwhisk
+  src: https://github.com/nemonik/openwhisk-role.git
+  version: master

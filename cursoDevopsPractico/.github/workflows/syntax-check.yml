@@ -1,0 +1,34 @@
+name: Basic role syntax check
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'ansible/roles/**'
+      - 'box/ansible/roles/**'
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Basic role syntax check
+        run: | 
+          paths=( "${PWD}/ansible/roles" "${PWD}/box/ansible/roles" )
+          for path in "${paths[@]}"; do
+            echo "[defaults]" >$HOME/.ansible.cfg
+            echo "roles_path=${path}" >>$HOME/.ansible.cfg
+            cd ${path}
+            for role in `find . -maxdepth 1 -type d`; do
+              if [ "$role" != "." ] && [ "$role" != ".." ]; then
+                cd ${role}
+                pwd
+                ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+                cd ..
+              fi
+            done
+          done 

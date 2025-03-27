@@ -1,0 +1,98 @@
+---
+# tasks file for create-cache
+
+# Copyright (C) 2020 Michael Joseph Walsh - All Rights Reserved
+# You may use, distribute and modify this code under the
+# terms of the the license.
+#
+# You should have received a copy of the license with
+# this file. If not, please email <mjwalsh@nemonik.com>
+
+- name: create {{ cache_path }}/{{ group_names[0] }} if it doesn't exist
+  shell: |
+    if [[ "windows" == "{{ host_os }}" ]]; then
+      sudo su
+    fi
+    mkdir -p {{ cache_path }}/{{ group_names[0] }}
+  args:
+    executable: /bin/bash
+  tags:
+    - create-cache
+
+- name: cache {{ cache_path }}/apk contents
+  become: yes
+  shell: |
+    if [[ "windows" == "{{ host_os }}" ]]; then
+      sudo su
+    fi
+    tempfile="$(mktemp /tmp/nemonik.XXXXXXXXX).tar.gz"
+    cd /var/cache/
+    tar zcvf $tempfile apk
+    cp -f $tempfile {{ cache_path }}/{{ group_names[0] }}/apk.tar.gz
+    rm -f $tempfile
+  args:
+    executable: /bin/bash
+  tags:
+    - create-cache
+
+- name: cache /usr/lib/python3.7/site-packages
+  become: yes
+  shell: |
+    if [[ "windows" == "{{ host_os }}" ]]; then
+      sudo su
+    fi
+    tempfile="$(mktemp /tmp/nemonik.XXXXXXXXX).tar.gz"
+    cd /usr/lib/python3.7/
+    tar zcvf $tempfile site-packages
+    cp -f $tempfile {{ cache_path }}/{{ group_names[0] }}/site-packages.tar.gz
+    rm -f $tempfile
+  args:
+    executable: /bin/bash
+  when: ( ansible_distribution != 'CentOS' and ansible_distribution_major_version != '7' )
+  tags:
+    - create-cache
+
+- name: cache /home/{{ ansible_user_id }}/.cache
+  shell: |
+    if [[ "windows" == "{{ host_os }}" ]]; then
+      su
+    fi
+    tempfile="$(mktemp /tmp/nemonik.XXXXXXXXX).tar.gz"
+    cd /home/{{ ansible_user_id }}/
+    tar zcvf $tempfile .cache
+    cp -f $tempfile /{{ cache_path }}/{{ group_names[0] }}/cache.tar.gz
+    rm -f $tempfile
+  args:
+    executable: /bin/bash
+  tags:
+    - create-cache
+
+- name: cache /home/{{ ansible_user_id }}/.local
+  shell: |
+    if [[ "windows" == "{{ host_os }}" ]]; then
+      sudo su
+    fi
+    tempfile="$(mktemp /tmp/nemonik.XXXXXXXXX).tar.gz"
+    cd /home/{{ ansible_user_id }}/
+    tar zcvf $tempfile .local
+    cp -f $tempfile {{ cache_path }}/{{ group_names[0] }}/local.tar.gz
+    rm -f $tempfile
+  args:
+    executable: /bin/bash
+  tags:
+    - create-cache
+
+- name: cache /home/{{ ansible_user_id }}/.gem
+  shell: |
+    if [[ "windows" == "{{ host_os }}" ]]; then
+      sudo su
+    fi
+    tempfile="$(mktemp /tmp/nemonik.XXXXXXXXX).tar.gz"
+    cd /home/{{ ansible_user_id }}/
+    tar zcvf $tempfile .gem
+    cp -f $tempfile {{ cache_path }}/{{ group_names[0] }}/gem.tar.gz
+    rm -f $tempfile
+  args:
+    executable: /bin/bash
+  tags:
+    - create-cache
