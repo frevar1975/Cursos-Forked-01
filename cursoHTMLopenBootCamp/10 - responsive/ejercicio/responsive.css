@@ -1,0 +1,32 @@
+
+.contenedor{
+    display: flex;
+}
+
+.item-i{
+ 
+    background-color:aquamarine;
+    margin: 1px;
+    padding: 0.25rem;
+    font-size: 2rem;
+    border: solid 1px blue;
+   
+}
+
+.item-d{
+   
+    background-color:aquamarine;
+    padding: 0.25rem;
+    font-size: 7.3rem;
+    border: solid 1px blue;
+}
+
+
+@media  (min-width:300px ) {
+    .item-i {
+        margin-bottom: 50cm;
+        background-color: blue;
+        display: table-cell;
+        
+     }
+}

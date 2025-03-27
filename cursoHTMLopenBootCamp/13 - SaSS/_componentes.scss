@@ -1,0 +1,9 @@
+.btn {
+    border: none;
+    padding: 0.25 rem 0.5rem;
+    color: #2b2b2b;
+    &:hover {
+        background-color: pink;
+        color: red;
+    }
+}

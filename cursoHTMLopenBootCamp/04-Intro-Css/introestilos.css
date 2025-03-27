@@ -1,0 +1,21 @@
+.colores{
+    color: orangered;
+}
+.color-hexadecimal{
+    color: #BCE764;
+}
+
+.color-rgb{
+    color: rgb(100,0,200)
+}
+.color-rgba{
+    color : rgba(10.10,10,0.85)
+}
+/*fondo*/
+
+.fondo{
+    background-color: blue;
+}
+.fondo-interno{
+    background-position:left bottom;
+}

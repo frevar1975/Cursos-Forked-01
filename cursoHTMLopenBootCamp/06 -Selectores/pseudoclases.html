@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Clases</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .hover{
+            width: 300px;
+            height: 100px;
+            background-color: bisque;
+        }
+        
+            .hover:hover{
+                background-color: burlywood;
+            }
+            
+            .listado{
+                padding:15px;
+                background-color: aquamarine;
+            }
+            .listado p:first-child {
+                color: red;
+            }
+            
+        a:link{
+            color:deeppink
+        }
+        a:visited{
+            color:aquamarine;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="hover">
+        <p>
+            Primero se que la práctica que hace TeamWork Chile la hacen finalmente personas, sinceramente me preocupa que se iera se haya contactado con mi hermana para mínimo preguntar y si hizo algo claramente no 
+        </p>
+    </div>
+    <div class="listado">
+        <p>parrafo 1</p>
+        <p>parrafo 2</p>
+        <p>parrafo 3</p>
+    </div>
+    <div class="enlaces">
+        <a href="http://google.com" target="_blank">Enlace a google</a>
+    </div>
+</body>
+</html>

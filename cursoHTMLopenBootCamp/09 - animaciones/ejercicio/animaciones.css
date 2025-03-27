@@ -1,0 +1,20 @@
+.btn-modern:hover{
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color:white;
+    border-radius: 5px;
+    border:none;
+    border-bottom: 2px solid darkgreen;
+    animation: traslacion 0.4s
+   
+    
+}
+@keyframes traslacion {
+    0% {
+       
+        transform: translatey(-5px);
+    }
+}

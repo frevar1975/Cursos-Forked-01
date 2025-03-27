@@ -1,0 +1,20 @@
+.contenedor {
+    display: grid;
+    gap:0.5 rem;
+    row-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px 5rem 100px;
+   
+}
+.item{
+    background-color:aquamarine;
+    padding: 0.25rem;
+    font-size: 2rem;
+    border: solid 1px blue;
+}
+item1 {
+    grid-column: 2 / span 2;
+}
+item9 {
+    grid-area: 2 / 2 /4 /5;
+}
