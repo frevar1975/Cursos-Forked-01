@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block titulo%}Confirmación{% endblock%}
+{% block contenido%}
+  {% if true_info_check %}
+    <div class="alert alert-success">Gracias, los datos han sido registrados correctamente!</div>
+  {% else %}
+    <div class="alert alert-danger">Lo sentimos! Debes confirmar la veracidad y actualidad de los datos. <a href='/identity'>Volver</a></div>
+  {% endif %}
+{% endblock%}
